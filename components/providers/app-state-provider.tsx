@@ -14,6 +14,21 @@ type SavedQuizResult = {
   total: number;
 };
 
+type ActivityEvent = {
+  id: string;
+  type:
+    | "login"
+    | "track"
+    | "lesson"
+    | "prompt"
+    | "quiz"
+    | "submission";
+  title: string;
+  description: string;
+  at: string;
+  href?: string;
+};
+
 type WorkflowSubmission = {
   requestType: "custom-build" | "final-project";
   title: string;
@@ -35,6 +50,7 @@ type AppStateValue = {
   favoritePromptIds: string[];
   savedQuizResults: Record<string, SavedQuizResult>;
   workflowSubmissions: WorkflowSubmission[];
+  activityLog: ActivityEvent[];
   login: (payload: DemoUser) => void;
   logout: () => void;
   selectTrack: (trackSlug: string) => void;
@@ -54,6 +70,7 @@ type PersistedState = Pick<
   | "favoritePromptIds"
   | "savedQuizResults"
   | "workflowSubmissions"
+  | "activityLog"
 >;
 
 const initialState: PersistedState = {
@@ -63,7 +80,23 @@ const initialState: PersistedState = {
   favoritePromptIds: [],
   savedQuizResults: {},
   workflowSubmissions: [],
+  activityLog: [],
 };
+
+function buildEvent(event: Omit<ActivityEvent, "id" | "at">): ActivityEvent {
+  return {
+    ...event,
+    id: `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
+    at: new Date().toISOString(),
+  };
+}
+
+function prependActivity(
+  current: PersistedState,
+  event: Omit<ActivityEvent, "id" | "at">,
+) {
+  return [buildEvent(event), ...current.activityLog].slice(0, 24);
+}
 
 export function AppStateProvider({ children }: { children: ReactNode }) {
   const [state, setState] = useState<PersistedState>(() => {
@@ -95,13 +128,31 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
       ...state,
       isHydrated,
       login(payload) {
-        setState((current) => ({ ...current, user: payload }));
+        setState((current) => ({
+          ...current,
+          user: payload,
+          activityLog: prependActivity(current, {
+            type: "login",
+            title: "Signed into local workspace",
+            description: `Started a local session as ${payload.role}.`,
+            href: "/dashboard",
+          }),
+        }));
       },
       logout() {
         setState((current) => ({ ...current, user: null }));
       },
       selectTrack(trackSlug) {
-        setState((current) => ({ ...current, selectedTrack: trackSlug }));
+        setState((current) => ({
+          ...current,
+          selectedTrack: trackSlug,
+          activityLog: prependActivity(current, {
+            type: "track",
+            title: "Selected a track",
+            description: `Set ${trackSlug} as the current learning direction.`,
+            href: `/tracks/${trackSlug}`,
+          }),
+        }));
       },
       toggleLessonComplete(lessonSlug) {
         setState((current) => {
@@ -112,6 +163,14 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
             completedLessons: isComplete
               ? current.completedLessons.filter((slug) => slug !== lessonSlug)
               : [...current.completedLessons, lessonSlug],
+            activityLog: prependActivity(current, {
+              type: "lesson",
+              title: isComplete ? "Reopened a lesson" : "Completed a lesson",
+              description: isComplete
+                ? `Marked ${lessonSlug} as incomplete for another pass.`
+                : `Marked ${lessonSlug} complete in the lesson path.`,
+              href: `/lessons/${lessonSlug}`,
+            }),
           };
         });
       },
@@ -124,6 +183,14 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
             favoritePromptIds: isFavorite
               ? current.favoritePromptIds.filter((id) => id !== promptId)
               : [...current.favoritePromptIds, promptId],
+            activityLog: prependActivity(current, {
+              type: "prompt",
+              title: isFavorite ? "Removed a saved prompt" : "Saved a prompt",
+              description: isFavorite
+                ? `Removed ${promptId} from the workflow library.`
+                : `Saved ${promptId} to the personal prompt library.`,
+              href: "/prompts",
+            }),
           };
         });
       },
@@ -134,6 +201,12 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
             ...current.savedQuizResults,
             [quizId]: { score, total },
           },
+          activityLog: prependActivity(current, {
+            type: "quiz",
+            title: "Finished a quiz checkpoint",
+            description: `Saved a local score of ${score}/${total} for ${quizId}.`,
+            href: `/quizzes/${quizId}`,
+          }),
         }));
       },
       submitWorkflow(payload) {
@@ -146,6 +219,18 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
             },
             ...current.workflowSubmissions,
           ],
+          activityLog: prependActivity(current, {
+            type: "submission",
+            title:
+              payload.requestType === "final-project"
+                ? "Submitted a final project draft"
+                : "Submitted a custom workflow request",
+            description: payload.title,
+            href:
+              payload.requestType === "final-project"
+                ? "/final-project"
+                : "/custom-build-request",
+          }),
         }));
       },
     }),

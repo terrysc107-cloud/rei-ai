@@ -14,6 +14,7 @@ const dashboardLinks = [
   { href: "/resources", label: "Resources" },
   { href: "/final-project", label: "Final Project" },
   { href: "/custom-build-request", label: "Workflow Request" },
+  { href: "/content-studio", label: "Content Studio" },
   { href: "/account", label: "Account" },
 ];
 
