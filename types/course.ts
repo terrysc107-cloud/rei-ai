@@ -64,6 +64,14 @@ export interface Track {
   moduleSlugs: string[];
 }
 
+export interface TrackDetail {
+  trackSlug: string;
+  transformation: string;
+  bestFor: string[];
+  firstMoves: string[];
+  artifactsBuilt: string[];
+}
+
 export interface PromptTemplate {
   id: string;
   title: string;
@@ -114,10 +122,18 @@ export interface FinalProjectPrompt {
   title: string;
   description: string;
   deliverables: string[];
+  rubric: string[];
+  exampleProjects: {
+    title: string;
+    description: string;
+  }[];
 }
 
 export interface WorkflowOffer {
   title: string;
   description: string;
   deliverables: string[];
+  process: string[];
+  idealFits: string[];
+  exampleRequests: string[];
 }

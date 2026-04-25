@@ -10,6 +10,7 @@ import type {
   ResourceCollection,
   ResourceItem,
   Track,
+  TrackDetail,
   WorkflowOffer,
 } from "@/types/course";
 
@@ -43,6 +44,69 @@ export const tracks: Track[] = [
       "Create operating systems for tenant communication, vendor coordination, and property reviews without adding new software first.",
     featuredPrompt: "prompt-tenant-comms-manager",
     moduleSlugs: ["tenant-systems", "rehab-ops"],
+  },
+];
+
+export const trackDetails: TrackDetail[] = [
+  {
+    trackSlug: "ai-real-estate-basics",
+    transformation:
+      "Go from curious-but-unsure to someone who can study with AI, frame better prompts, and turn real estate confusion into clear learning systems.",
+    bestFor: [
+      "Beginners who want a better learning loop",
+      "New agents studying terminology and process",
+      "Anyone who understands AI loosely but not operationally",
+    ],
+    firstMoves: [
+      "Start with AI Foundations For Real Estate",
+      "Save one study prompt and one workflow prompt",
+      "Use the first quiz to check whether concepts are actually sticking",
+    ],
+    artifactsBuilt: [
+      "A personal study coach prompt",
+      "A repeatable review routine",
+      "A cleaner mental model for operational prompting",
+    ],
+  },
+  {
+    trackSlug: "lead-to-close-systems",
+    transformation:
+      "Go from scattered lead handling and inconsistent marketing to a repeatable operating rhythm for follow-up, content, and pipeline discipline.",
+    bestFor: [
+      "Agents who want more consistency in follow-up",
+      "Wholesalers managing incoming lead volume",
+      "Team leaders who need repeatable process before scale",
+    ],
+    firstMoves: [
+      "Pick one lead source and build a triage rule for it",
+      "Save a follow-up prompt you would genuinely reuse",
+      "Turn one marketing task into a weekly workflow",
+    ],
+    artifactsBuilt: [
+      "A lead triage checklist",
+      "A reusable follow-up prompt sequence",
+      "A weekly listing or content workflow",
+    ],
+  },
+  {
+    trackSlug: "landlord-ops-automation",
+    transformation:
+      "Go from reactive property operations to clearer tenant communication, cleaner rehab coordination, and better documented day-to-day workflows.",
+    bestFor: [
+      "Landlords who want less friction in tenant communication",
+      "Investors managing rehabs or recurring vendor updates",
+      "Operators who need systems before hiring more support",
+    ],
+    firstMoves: [
+      "Map the tenant or rehab scenario that repeats most often",
+      "Create one message template and one ops checklist",
+      "Use the track to turn scattered notes into a repeatable structure",
+    ],
+    artifactsBuilt: [
+      "A tenant communication matrix",
+      "A rehab scope prompt and update format",
+      "A reusable ops checklist for recurring property work",
+    ],
   },
 ];
 
@@ -995,6 +1059,29 @@ export const finalProject: FinalProjectPrompt = {
     "A step-by-step SOP someone else could follow",
     "A short reflection on where human judgment is still required",
   ],
+  rubric: [
+    "The workflow solves a real business problem instead of an abstract idea",
+    "The prompt is specific enough to reproduce similar output later",
+    "The SOP is clear enough that another person could follow it",
+    "The student identifies where human review still matters",
+  ],
+  exampleProjects: [
+    {
+      title: "Seller Lead Follow-Up System",
+      description:
+        "A sequence that takes lead source, timing, and motivation and turns them into text, email, and notes-to-CRM outputs.",
+    },
+    {
+      title: "Licensing Study Drill Workflow",
+      description:
+        "A study routine that converts missed questions into explanations, flashcards, and concept variations.",
+    },
+    {
+      title: "Tenant Maintenance Communication Flow",
+      description:
+        "A system for intake, response drafting, internal notes, and follow-up messaging around recurring property issues.",
+    },
+  ],
 };
 
 export const workflowOffer: WorkflowOffer = {
@@ -1006,6 +1093,24 @@ export const workflowOffer: WorkflowOffer = {
     "Current process pain points",
     "Data or documents already available",
     "Preferred output format such as SOP, prompt pack, or checklist",
+  ],
+  process: [
+    "We clarify the business problem and the exact workflow outcome you want",
+    "We identify what inputs, prompts, and steps the workflow needs",
+    "We package it into something usable, such as a prompt pack, SOP, or checklist flow",
+  ],
+  idealFits: [
+    "Lead follow-up and qualification",
+    "Listing marketing and content repurposing",
+    "Tenant communication and maintenance ops",
+    "Rehab coordination and vendor updates",
+    "Deal analysis and underwriting support",
+  ],
+  exampleRequests: [
+    "Build me a workflow for new seller leads from sign calls",
+    "Help me systemize my weekly listing marketing content",
+    "Create a repeatable tenant maintenance response workflow",
+    "Turn my rehab walkthrough notes into a reusable scope process",
   ],
 };
 
@@ -1145,6 +1250,27 @@ export const landingFaqs = [
   },
 ];
 
+export const onboardingPaths = [
+  {
+    title: "I am brand new and need structure",
+    description:
+      "Start in AI Real Estate Basics, save one study prompt, and complete one lesson plus one quiz before doing anything else.",
+    href: "/tracks/ai-real-estate-basics",
+  },
+  {
+    title: "I already work leads and want systems",
+    description:
+      "Start in Lead to Close Systems and focus on one repeatable lead workflow before expanding into marketing.",
+    href: "/tracks/lead-to-close-systems",
+  },
+  {
+    title: "I manage properties or projects",
+    description:
+      "Start in Landlord Ops Automation and pick the one communication or rehab process that creates the most weekly friction.",
+    href: "/tracks/landlord-ops-automation",
+  },
+];
+
 export const pricingNarrative = {
   headline: "The local MVP is for validating demand, flow, and positioning before backend complexity.",
   bullets: [
@@ -1210,6 +1336,10 @@ export const customBuildExamples = [
 
 export function getTrackBySlug(trackSlug: string) {
   return tracks.find((track) => track.slug === trackSlug);
+}
+
+export function getTrackDetail(trackSlug: string) {
+  return trackDetails.find((detail) => detail.trackSlug === trackSlug);
 }
 
 export function getModuleBySlug(moduleSlug: string) {
