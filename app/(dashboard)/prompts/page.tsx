@@ -1,7 +1,7 @@
 import { PromptActions } from "@/components/prompts/prompt-actions";
 import { Badge } from "@/components/ui/badge";
 import { PageIntro } from "@/components/ui/page-intro";
-import { prompts } from "@/lib/data/course-data";
+import { promptPacks, prompts } from "@/lib/data/course-data";
 
 export default function PromptsPage() {
   return (
@@ -11,6 +11,21 @@ export default function PromptsPage() {
         title="Copy, save, and reuse the prompts that fit your workflow."
         description="The MVP prompt library is grouped around real estate outcomes instead of generic AI use cases."
       />
+
+      <section className="grid gap-6 lg:grid-cols-3">
+        {promptPacks.map((pack) => (
+          <section key={pack.id} className="rounded-[28px] border border-[var(--border)] bg-white p-6">
+            <h2 className="text-2xl font-semibold text-[var(--ink)]">{pack.title}</h2>
+            <p className="mt-3 text-base leading-7 text-[var(--ink-muted)]">{pack.description}</p>
+            <div className="mt-5 flex flex-wrap gap-2">
+              {pack.promptIds.map((promptId) => {
+                const prompt = prompts.find((item) => item.id === promptId);
+                return prompt ? <Badge key={prompt.id}>{prompt.title}</Badge> : null;
+              })}
+            </div>
+          </section>
+        ))}
+      </section>
 
       <div className="grid gap-6">
         {prompts.map((prompt) => (

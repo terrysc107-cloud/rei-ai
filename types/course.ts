@@ -47,6 +47,13 @@ export interface Module {
   lessonSlugs: string[];
 }
 
+export interface ModuleDetail {
+  moduleSlug: string;
+  promise: string;
+  outcomes: string[];
+  buildAssets: string[];
+}
+
 export interface Track {
   slug: string;
   title: string;
@@ -72,6 +79,20 @@ export interface ResourceItem {
   type: ResourceType;
   description: string;
   downloadLabel: string;
+}
+
+export interface PromptPack {
+  id: string;
+  title: string;
+  description: string;
+  promptIds: string[];
+}
+
+export interface ResourceCollection {
+  id: string;
+  title: string;
+  description: string;
+  resourceIds: string[];
 }
 
 export interface QuizQuestion {

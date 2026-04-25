@@ -3,8 +3,11 @@ import type {
   Lesson,
   LessonDetail,
   Module,
+  ModuleDetail,
   PromptTemplate,
+  PromptPack,
   Quiz,
+  ResourceCollection,
   ResourceItem,
   Track,
   WorkflowOffer,
@@ -91,6 +94,99 @@ export const modules: Module[] = [
     description:
       "Coordinate scopes, updates, and vendor accountability with AI-assisted workflows.",
     lessonSlugs: ["rehab-scope-generator", "vendor-update-briefs"],
+  },
+];
+
+export const moduleDetails: ModuleDetail[] = [
+  {
+    moduleSlug: "ai-foundations",
+    promise:
+      "Build the mental model that makes AI useful in a real estate business instead of treating it like a novelty generator.",
+    outcomes: [
+      "Understand how role, context, and output format change quality",
+      "Turn messy notes into structured checklists and workflows",
+      "Develop a habit of saving strong prompts instead of rewriting them",
+    ],
+    buildAssets: [
+      "A reusable prompt framework",
+      "A checklist-building workflow",
+      "A better sense of what good AI output should look like",
+    ],
+  },
+  {
+    moduleSlug: "licensing-with-ai",
+    promise:
+      "Use AI like a study coach so licensing prep becomes more targeted, less repetitive, and easier to retain.",
+    outcomes: [
+      "Clarify confusing concepts in plain English",
+      "Transform missed questions into concept drills",
+      "Build a repeatable review process from weak spots",
+    ],
+    buildAssets: [
+      "A study coach prompt",
+      "A practice-question remix workflow",
+      "A lightweight daily review loop",
+    ],
+  },
+  {
+    moduleSlug: "lead-workflows",
+    promise:
+      "Create a lead-handling system that improves speed and consistency without making follow-up feel robotic.",
+    outcomes: [
+      "Prioritize leads by urgency and motivation",
+      "Generate better messages for different channels",
+      "Capture next actions and CRM logging rules",
+    ],
+    buildAssets: [
+      "A lead triage checklist",
+      "A follow-up sequence prompt",
+      "A notes and next-action structure for the pipeline",
+    ],
+  },
+  {
+    moduleSlug: "marketing-systems",
+    promise:
+      "Build a content engine that turns property notes and local knowledge into repeatable marketing assets.",
+    outcomes: [
+      "Translate listing facts into useful buyer-facing copy",
+      "Batch content themes for weekly publishing",
+      "Repurpose one idea into multiple formats quickly",
+    ],
+    buildAssets: [
+      "A listing copy workflow",
+      "A weekly content batching routine",
+      "A reusable format for multi-channel marketing assets",
+    ],
+  },
+  {
+    moduleSlug: "tenant-systems",
+    promise:
+      "Reduce friction in tenant operations by standardizing messages and screening workflows before problems scale.",
+    outcomes: [
+      "Use clearer messaging across recurring tenant scenarios",
+      "Organize inquiry screening and response logic",
+      "Document communication with less stress and rework",
+    ],
+    buildAssets: [
+      "A tenant message matrix",
+      "A screening response workflow",
+      "Internal note templates for property operations",
+    ],
+  },
+  {
+    moduleSlug: "rehab-ops",
+    promise:
+      "Bring more structure to rehab coordination so contractors, owners, and operators stay aligned.",
+    outcomes: [
+      "Turn walkthrough notes into scopes of work",
+      "Sequence tasks and surface missing information earlier",
+      "Send more useful update briefs to vendors and owners",
+    ],
+    buildAssets: [
+      "A rehab scope generator prompt",
+      "A vendor update briefing format",
+      "A repeatable sequencing checklist for small projects",
+    ],
   },
 ];
 
@@ -249,6 +345,51 @@ export const resources: ResourceItem[] = [
     description:
       "A guide for running rehab communication through one repeating update structure.",
     downloadLabel: "Open guide",
+  },
+];
+
+export const promptPacks: PromptPack[] = [
+  {
+    id: "pack-study-and-skills",
+    title: "Study And Skills Pack",
+    description:
+      "Prompts for clarifying concepts, fixing weak spots, and building a smarter learning loop.",
+    promptIds: ["prompt-licensing-study-coach"],
+  },
+  {
+    id: "pack-lead-and-marketing",
+    title: "Lead And Marketing Pack",
+    description:
+      "Prompts for follow-up strategy, listing content, and converting notes into audience-ready messaging.",
+    promptIds: ["prompt-lead-follow-up-sequence", "prompt-listing-story-builder"],
+  },
+  {
+    id: "pack-operations-and-analysis",
+    title: "Operations And Analysis Pack",
+    description:
+      "Prompts for tenant communication, rehab planning, and evaluating whether a deal deserves deeper attention.",
+    promptIds: [
+      "prompt-tenant-comms-manager",
+      "prompt-rehab-scope-planner",
+      "prompt-deal-analyzer",
+    ],
+  },
+];
+
+export const resourceCollections: ResourceCollection[] = [
+  {
+    id: "collection-foundation-kit",
+    title: "Foundation Kit",
+    description:
+      "Worksheets and checklists that help users move from one-off prompts to reusable structures.",
+    resourceIds: ["resource-prompt-framework", "resource-crm-audit"],
+  },
+  {
+    id: "collection-operations-kit",
+    title: "Operations Kit",
+    description:
+      "Templates and guides for the recurring communication and coordination work that tends to get messy.",
+    resourceIds: ["resource-tenant-templates", "resource-rehab-board"],
   },
 ];
 
@@ -1073,6 +1214,10 @@ export function getTrackBySlug(trackSlug: string) {
 
 export function getModuleBySlug(moduleSlug: string) {
   return modules.find((module) => module.slug === moduleSlug);
+}
+
+export function getModuleDetail(moduleSlug: string) {
+  return moduleDetails.find((detail) => detail.moduleSlug === moduleSlug);
 }
 
 export function getLessonBySlug(lessonSlug: string) {
