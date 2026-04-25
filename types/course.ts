@@ -37,6 +37,9 @@ export interface LessonDetail {
   workflowBlueprint: string[];
   commonMistakes: string[];
   doThisToday: string[];
+  practiceExercise?: string;
+  reflectionQuestions?: string[];
+  implementationDeliverable?: string;
 }
 
 export interface Module {
@@ -136,4 +139,14 @@ export interface WorkflowOffer {
   process: string[];
   idealFits: string[];
   exampleRequests: string[];
+}
+
+export interface PricingPlan {
+  id: string;
+  name: string;
+  price: string;
+  description: string;
+  items: string[];
+  ctaLabel: string;
+  highlight?: boolean;
 }

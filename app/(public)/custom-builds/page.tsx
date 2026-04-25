@@ -79,6 +79,30 @@ export default function CustomBuildsPage() {
           </div>
         </div>
       </section>
+
+      <section className="rounded-[30px] border border-[var(--border)] bg-white p-8">
+        <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+          <div>
+            <p className="text-sm font-medium text-[var(--ink-muted)]">Offer fit</p>
+            <h2 className="mt-2 text-3xl font-semibold text-[var(--ink)]">
+              Use the custom build path when the workflow matters enough to package properly
+            </h2>
+          </div>
+          <Badge>Service-led monetization</Badge>
+        </div>
+        <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+          {[
+            "The task repeats often enough that a system saves real time",
+            "The workflow needs judgment, prompts, and structure together",
+            "The operator wants implementation help, not just inspiration",
+            "The output should become a reusable asset for the business",
+          ].map((item) => (
+            <div key={item} className="rounded-[22px] bg-[var(--panel)] px-4 py-4 text-sm leading-6 text-[var(--ink-muted)]">
+              {item}
+            </div>
+          ))}
+        </div>
+      </section>
     </div>
   );
 }

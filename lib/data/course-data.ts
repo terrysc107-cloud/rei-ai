@@ -4,6 +4,7 @@ import type {
   LessonDetail,
   Module,
   ModuleDetail,
+  PricingPlan,
   PromptTemplate,
   PromptPack,
   Quiz,
@@ -690,6 +691,14 @@ export const lessonDetails: LessonDetail[] = [
       "Save the version that gives the most usable output",
       "Document why the better version worked",
     ],
+    practiceExercise:
+      "Take one generic prompt from your current workflow and rewrite it with role, context, output format, and tone constraints.",
+    reflectionQuestions: [
+      "What missing context usually makes your prompts weaker?",
+      "How do you know when an output is useful versus just polished sounding?",
+    ],
+    implementationDeliverable:
+      "A before-and-after prompt pair you can reuse as a standard for future prompting.",
   },
   {
     lessonSlug: "turning-chaos-into-checklists",
@@ -713,6 +722,14 @@ export const lessonDetails: LessonDetail[] = [
       "Label which tasks belong to you versus a vendor or teammate",
       "Reuse the same structure on the next messy task",
     ],
+    practiceExercise:
+      "Paste one chaotic note dump into AI and ask it to separate actions, owners, missing information, and next steps.",
+    reflectionQuestions: [
+      "Where does your business create the most repeatable mess today?",
+      "What checklist would save you the most stress this week?",
+    ],
+    implementationDeliverable:
+      "A reusable checklist structure you can apply to the next messy workflow without starting over.",
   },
   {
     lessonSlug: "licensing-study-coach",
@@ -736,6 +753,14 @@ export const lessonDetails: LessonDetail[] = [
       "Use the study coach prompt to clarify it",
       "Create a mini review loop from the output",
     ],
+    practiceExercise:
+      "Run the study coach on one confusing topic and compare its explanation to the wording in your course material.",
+    reflectionQuestions: [
+      "Which topics are truly unclear versus just unfamiliar?",
+      "How can AI help you stay in active study mode instead of passive reading mode?",
+    ],
+    implementationDeliverable:
+      "A saved licensing-study prompt plus one repeatable review routine for weak concepts.",
   },
   {
     lessonSlug: "practice-question-remix",
@@ -759,6 +784,14 @@ export const lessonDetails: LessonDetail[] = [
       "Create three new variations of it with AI",
       "Write one sentence about what the question is really testing",
     ],
+    practiceExercise:
+      "Use one missed exam question to generate three variations and one plain-English concept explanation.",
+    reflectionQuestions: [
+      "What pattern of mistakes keeps showing up in your practice sets?",
+      "Are you memorizing wording or understanding principles?",
+    ],
+    implementationDeliverable:
+      "A repeatable remix method for turning missed questions into targeted drills.",
   },
   {
     lessonSlug: "lead-triage-system",
@@ -782,6 +815,14 @@ export const lessonDetails: LessonDetail[] = [
       "Create a simple high-medium-low triage structure",
       "Use it to process your next five leads consistently",
     ],
+    practiceExercise:
+      "Take five recent leads and classify them by urgency, motivation, and recommended next action.",
+    reflectionQuestions: [
+      "Which lead sources deserve the fastest follow-up in your business?",
+      "Where are you losing momentum because every lead gets treated the same way?",
+    ],
+    implementationDeliverable:
+      "A triage rubric you can use before sending the first follow-up.",
   },
   {
     lessonSlug: "follow-up-that-doesnt-sound-robotic",
@@ -805,6 +846,14 @@ export const lessonDetails: LessonDetail[] = [
       "Create one softer version and one more direct version",
       "Save both as reusable templates",
     ],
+    practiceExercise:
+      "Draft the same follow-up for text, email, and voicemail, then compare how the tone needs to shift across channels.",
+    reflectionQuestions: [
+      "Where does your current follow-up sound too generic or too pushy?",
+      "What would make your outreach feel more like you?",
+    ],
+    implementationDeliverable:
+      "A saved follow-up prompt with at least two tone variations for reuse.",
   },
   {
     lessonSlug: "listing-content-engine",
@@ -828,6 +877,14 @@ export const lessonDetails: LessonDetail[] = [
       "Produce three channel outputs from one structured prompt",
       "Note which source details made the copy stronger",
     ],
+    practiceExercise:
+      "Choose one listing and create MLS copy, an Instagram caption, and an email teaser from the same source notes.",
+    reflectionQuestions: [
+      "Which property details actually change the quality of your copy?",
+      "How can you avoid defaulting to empty adjectives?",
+    ],
+    implementationDeliverable:
+      "A repeatable listing content workflow with one source-note structure and three output formats.",
   },
   {
     lessonSlug: "weekly-content-factory",
@@ -851,6 +908,14 @@ export const lessonDetails: LessonDetail[] = [
       "Draft one batch prompt that supports all three",
       "Save the format as a recurring content ritual",
     ],
+    practiceExercise:
+      "Plan one week of educational, local, and conversion-oriented content from a single batch planning session.",
+    reflectionQuestions: [
+      "What content categories actually support your business model?",
+      "Where are you wasting time because content starts from scratch each week?",
+    ],
+    implementationDeliverable:
+      "A weekly content batching template you can repeat with different themes.",
   },
   {
     lessonSlug: "tenant-message-matrix",
@@ -874,6 +939,14 @@ export const lessonDetails: LessonDetail[] = [
       "Create one matching internal note format",
       "Test whether the language feels clear and calm",
     ],
+    practiceExercise:
+      "Write text, email, and file-note versions of one maintenance-related tenant scenario.",
+    reflectionQuestions: [
+      "Which tenant conversations create the most friction or inconsistency?",
+      "How can clearer templates reduce avoidable back-and-forth?",
+    ],
+    implementationDeliverable:
+      "A mini communication matrix for at least three recurring tenant situations.",
   },
   {
     lessonSlug: "screening-and-response-workflow",
@@ -897,6 +970,14 @@ export const lessonDetails: LessonDetail[] = [
       "Write one standard first-response prompt",
       "Create a notes format you can reuse for every inquiry",
     ],
+    practiceExercise:
+      "Take one incoming renter inquiry and build a first-response message, a follow-up question set, and a screening note template.",
+    reflectionQuestions: [
+      "What information do you really need before the next step?",
+      "Where is your current inquiry process too loose or too manual?",
+    ],
+    implementationDeliverable:
+      "A first-touch screening workflow with message, qualification questions, and note structure.",
   },
   {
     lessonSlug: "rehab-scope-generator",
@@ -920,6 +1001,14 @@ export const lessonDetails: LessonDetail[] = [
       "Turn it into categories and priority order",
       "Save the prompt so the next walkthrough is faster",
     ],
+    practiceExercise:
+      "Run one real walkthrough note set through the scope planner and compare the structured result to your old process.",
+    reflectionQuestions: [
+      "What kinds of rehab notes usually stay too vague for too long?",
+      "How often do missing dependencies create downstream problems?",
+    ],
+    implementationDeliverable:
+      "A rehab scope template with categories, sequencing, vendor questions, and summary output.",
   },
   {
     lessonSlug: "vendor-update-briefs",
@@ -943,6 +1032,14 @@ export const lessonDetails: LessonDetail[] = [
       "Turn it into a short structured brief",
       "Reuse that format for your next project update",
     ],
+    practiceExercise:
+      "Take a messy set of contractor texts and condense them into one owner-ready update with progress, blockers, and next actions.",
+    reflectionQuestions: [
+      "What information tends to get buried in your current project updates?",
+      "How can clearer briefs reduce confusion and repeated questions?",
+    ],
+    implementationDeliverable:
+      "A reusable update-brief format for vendors, owners, or internal ops notes.",
   },
 ];
 
@@ -1320,6 +1417,75 @@ export const pricingNarrative = {
     "Use custom workflow builds when you want a done-with-you operating system instead of only self-serve lessons.",
   ],
 };
+
+export const pricingPlans: PricingPlan[] = [
+  {
+    id: "explorer",
+    name: "Explorer",
+    price: "Free MVP",
+    description:
+      "For validating the learning experience, browsing the tracks, saving prompts locally, and understanding the product structure.",
+    items: [
+      "Landing page and track exploration",
+      "Local account and browser-saved progress",
+      "Prompt library, quizzes, and final project drafting",
+      "Early workflow request capture",
+    ],
+    ctaLabel: "Start locally",
+  },
+  {
+    id: "operator",
+    name: "Operator",
+    price: "Planned paid tier",
+    description:
+      "For users who want persistent accounts, production dashboards, and a cleaner learning-to-implementation workflow.",
+    items: [
+      "Real auth and saved cross-device progress",
+      "Persistent prompt favorites and quiz history",
+      "Production-ready submissions and account memory",
+      "Stronger content packaging and access control",
+    ],
+    ctaLabel: "Join guided tier later",
+    highlight: true,
+  },
+  {
+    id: "custom-build",
+    name: "Custom Build",
+    price: "Done-with-you offer",
+    description:
+      "For operators who do not just want to learn the workflow. They want help building and packaging it for real business use.",
+    items: [
+      "Workflow scoping and intake",
+      "Prompt pack or SOP design support",
+      "Implementation-oriented deliverables",
+      "Best fit for repeatable business bottlenecks",
+    ],
+    ctaLabel: "Request a build",
+  },
+];
+
+export const gatingRoadmap = [
+  {
+    surface: "Track exploration",
+    now: "Open in local MVP",
+    later: "Mix of public previews and gated pathways",
+  },
+  {
+    surface: "Prompt library",
+    now: "Available in browser-saved mode",
+    later: "Tiered prompt packs and saved collections",
+  },
+  {
+    surface: "Quizzes and progress",
+    now: "Local testing and browser memory",
+    later: "Persistent learner history and checkpoint gating",
+  },
+  {
+    surface: "Final project and workflow requests",
+    now: "Local capture and product validation",
+    later: "Production intake, review, and paid upsell paths",
+  },
+];
 
 export const pricingComparison = [
   {

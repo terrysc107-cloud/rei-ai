@@ -1,22 +1,12 @@
 import { Badge } from "@/components/ui/badge";
 import { ButtonLink } from "@/components/ui/button";
 import { PageIntro } from "@/components/ui/page-intro";
-import { pricingComparison, pricingNarrative } from "@/lib/data/course-data";
-
-const tiers = [
-  {
-    name: "Starter",
-    price: "Free MVP",
-    description: "Explore the local testing build, sample tracks, prompts, quizzes, and workflow submissions.",
-    items: ["Browser-saved progress", "Prompt library", "Quizzes and final project", "Custom workflow request form"],
-  },
-  {
-    name: "Guided",
-    price: "Planned",
-    description: "Future version with real authentication, saved accounts, and production data persistence.",
-    items: ["Supabase auth", "Persistent dashboards", "Production project submissions", "Role-based content access"],
-  },
-];
+import {
+  gatingRoadmap,
+  pricingComparison,
+  pricingNarrative,
+  pricingPlans,
+} from "@/lib/data/course-data";
 
 export default function PricingPage() {
   return (
@@ -27,9 +17,16 @@ export default function PricingPage() {
         description="This build is intentionally focused on testing the full learning flow before backend services are connected."
       />
 
-      <div className="grid gap-6 lg:grid-cols-2">
-        {tiers.map((tier) => (
-          <section key={tier.name} className="rounded-[28px] border border-[var(--border)] bg-white p-8 shadow-[0_24px_60px_rgba(62,49,38,0.06)]">
+      <div className="grid gap-6 xl:grid-cols-3">
+        {pricingPlans.map((tier) => (
+          <section
+            key={tier.id}
+            className={`rounded-[30px] border p-8 shadow-[0_24px_60px_rgba(62,49,38,0.06)] ${
+              tier.highlight
+                ? "border-[var(--accent)] bg-[linear-gradient(180deg,#fff8ee_0%,#ffffff_100%)]"
+                : "border-[var(--border)] bg-white"
+            }`}
+          >
             <Badge>{tier.name}</Badge>
             <h2 className="mt-4 text-3xl font-semibold text-[var(--ink)]">{tier.price}</h2>
             <p className="mt-3 text-base leading-7 text-[var(--ink-muted)]">{tier.description}</p>
@@ -40,6 +37,14 @@ export default function PricingPage() {
                 </li>
               ))}
             </ul>
+            <div className="mt-8">
+              <ButtonLink
+                href={tier.id === "custom-build" ? "/custom-builds" : "/signup"}
+                variant={tier.highlight ? "primary" : "secondary"}
+              >
+                {tier.ctaLabel}
+              </ButtonLink>
+            </div>
           </section>
         ))}
       </div>
@@ -77,6 +82,45 @@ export default function PricingPage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="rounded-[30px] border border-[var(--border)] bg-white p-8">
+        <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+          <div>
+            <p className="text-sm font-medium text-[var(--ink-muted)]">Access roadmap</p>
+            <h2 className="mt-2 text-3xl font-semibold text-[var(--ink)]">
+              What is open now, and what becomes structured later
+            </h2>
+          </div>
+          <Badge>Monetization framing</Badge>
+        </div>
+        <div className="mt-6 space-y-3">
+          {gatingRoadmap.map((row) => (
+            <div
+              key={row.surface}
+              className="grid gap-3 rounded-[22px] bg-[var(--panel)] p-4 lg:grid-cols-[0.9fr_0.8fr_1fr]"
+            >
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--ink-muted)]">
+                  Surface
+                </p>
+                <p className="mt-2 text-sm font-semibold text-[var(--ink)]">{row.surface}</p>
+              </div>
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--ink-muted)]">
+                  Now
+                </p>
+                <p className="mt-2 text-sm leading-6 text-[var(--ink-muted)]">{row.now}</p>
+              </div>
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--ink-muted)]">
+                  Later
+                </p>
+                <p className="mt-2 text-sm leading-6 text-[var(--ink-muted)]">{row.later}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 

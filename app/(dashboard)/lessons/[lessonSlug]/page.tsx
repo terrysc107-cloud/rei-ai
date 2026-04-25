@@ -139,6 +139,40 @@ export default async function LessonPage({
         </section>
       ) : null}
 
+      {detail?.practiceExercise || detail?.reflectionQuestions || detail?.implementationDeliverable ? (
+        <section className="grid gap-6 lg:grid-cols-[1fr_0.95fr]">
+          <div className="rounded-[28px] border border-[var(--border)] bg-white p-6">
+            <h2 className="text-2xl font-semibold text-[var(--ink)]">Practice lab</h2>
+            {detail.practiceExercise ? (
+              <div className="mt-5 rounded-[24px] bg-[var(--panel)] p-5">
+                <p className="text-sm font-medium text-[var(--ink-muted)]">Try this exercise</p>
+                <p className="mt-3 text-sm leading-7 text-[var(--ink)]">{detail.practiceExercise}</p>
+              </div>
+            ) : null}
+
+            {detail.implementationDeliverable ? (
+              <div className="mt-5 rounded-[24px] border border-[var(--border)] px-5 py-5">
+                <p className="text-sm font-medium text-[var(--ink-muted)]">Implementation deliverable</p>
+                <p className="mt-3 text-sm leading-7 text-[var(--ink-muted)]">
+                  {detail.implementationDeliverable}
+                </p>
+              </div>
+            ) : null}
+          </div>
+
+          <div className="rounded-[28px] bg-[linear-gradient(160deg,#211611_0%,#7a412f_100%)] p-6 text-white">
+            <p className="text-sm font-medium text-white/70">Reflection prompts</p>
+            <div className="mt-5 space-y-3">
+              {(detail.reflectionQuestions ?? []).map((question) => (
+                <div key={question} className="rounded-[22px] bg-white/8 px-4 py-4 text-sm leading-7 text-white/82">
+                  {question}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
+
       <section className="grid gap-6 lg:grid-cols-[1fr_0.9fr]">
         <div className="rounded-[28px] border border-[var(--border)] bg-white p-6">
           <h2 className="text-2xl font-semibold text-[var(--ink)]">Related resources</h2>
