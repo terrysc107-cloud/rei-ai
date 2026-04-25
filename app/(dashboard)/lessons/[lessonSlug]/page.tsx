@@ -6,6 +6,7 @@ import { ButtonLink } from "@/components/ui/button";
 import { PageIntro } from "@/components/ui/page-intro";
 import {
   getLessonBySlug,
+  getLessonDetail,
   getPromptById,
   getQuizById,
   getResourceById,
@@ -32,6 +33,7 @@ export default async function LessonPage({
     .map((resourceId) => getResourceById(resourceId))
     .filter(Boolean);
   const quiz = lesson.quizId ? getQuizById(lesson.quizId) : undefined;
+  const detail = getLessonDetail(lesson.slug);
 
   return (
     <div className="space-y-10">
@@ -59,6 +61,36 @@ export default async function LessonPage({
         </div>
       </section>
 
+      {detail ? (
+        <section className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
+          <div className="rounded-[28px] border border-[var(--border)] bg-white p-6">
+            <h2 className="text-2xl font-semibold text-[var(--ink)]">Why this matters</h2>
+            <p className="mt-4 text-base leading-7 text-[var(--ink-muted)]">
+              {detail.whyItMatters}
+            </p>
+
+            <div className="mt-6 rounded-[24px] bg-[var(--panel)] p-5">
+              <p className="text-sm font-medium text-[var(--ink-muted)]">Field scenario</p>
+              <p className="mt-3 text-sm leading-7 text-[var(--ink)]">{detail.fieldScenario}</p>
+            </div>
+          </div>
+
+          <div className="rounded-[28px] bg-[linear-gradient(160deg,#211611_0%,#7a412f_100%)] p-6 text-white">
+            <p className="text-sm font-medium text-white/70">Workflow blueprint</p>
+            <div className="mt-5 space-y-4">
+              {detail.workflowBlueprint.map((step, index) => (
+                <div key={step} className="flex items-start gap-4 rounded-[22px] bg-white/8 p-4">
+                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[var(--accent)] text-sm font-semibold text-white">
+                    {index + 1}
+                  </div>
+                  <p className="text-sm leading-7 text-white/82">{step}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
+
       <section className="space-y-6">
         <h2 className="text-2xl font-semibold text-[var(--ink)]">Prompts used in this lesson</h2>
         {promptTemplates.map((prompt) =>
@@ -80,6 +112,32 @@ export default async function LessonPage({
           ) : null,
         )}
       </section>
+
+      {detail ? (
+        <section className="grid gap-6 lg:grid-cols-2">
+          <div className="rounded-[28px] border border-[var(--border)] bg-white p-6">
+            <h2 className="text-2xl font-semibold text-[var(--ink)]">Common mistakes</h2>
+            <div className="mt-5 space-y-3">
+              {detail.commonMistakes.map((mistake) => (
+                <div key={mistake} className="rounded-2xl bg-[var(--panel)] px-4 py-4 text-sm leading-6 text-[var(--ink-muted)]">
+                  {mistake}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="rounded-[28px] border border-[var(--border)] bg-white p-6">
+            <h2 className="text-2xl font-semibold text-[var(--ink)]">Do this today</h2>
+            <div className="mt-5 space-y-3">
+              {detail.doThisToday.map((action) => (
+                <div key={action} className="rounded-2xl bg-[var(--panel)] px-4 py-4 text-sm leading-6 text-[var(--ink-muted)]">
+                  {action}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
 
       <section className="grid gap-6 lg:grid-cols-[1fr_0.9fr]">
         <div className="rounded-[28px] border border-[var(--border)] bg-white p-6">

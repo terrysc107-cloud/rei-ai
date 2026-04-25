@@ -30,6 +30,15 @@ export interface Lesson {
   quizId?: string;
 }
 
+export interface LessonDetail {
+  lessonSlug: string;
+  whyItMatters: string;
+  fieldScenario: string;
+  workflowBlueprint: string[];
+  commonMistakes: string[];
+  doThisToday: string[];
+}
+
 export interface Module {
   slug: string;
   trackSlug: string;

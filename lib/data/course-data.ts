@@ -1,6 +1,7 @@
 import type {
   FinalProjectPrompt,
   Lesson,
+  LessonDetail,
   Module,
   PromptTemplate,
   Quiz,
@@ -461,6 +462,285 @@ export const lessons: Lesson[] = [
   },
 ];
 
+export const lessonDetails: LessonDetail[] = [
+  {
+    lessonSlug: "prompting-like-an-operator",
+    whyItMatters:
+      "Most people get weak AI results because they ask for output before they define the situation. This lesson teaches users to give AI enough shape so the answer becomes usable, not just interesting.",
+    fieldScenario:
+      "A new agent asks AI to write follow-up copy and gets something generic. After adding the lead source, the seller's timing, the desired tone, and the call to action, the output becomes much closer to something they would actually send.",
+    workflowBlueprint: [
+      "Define the role AI should play in the task",
+      "Add the situation and business context",
+      "Specify the output format you want back",
+      "Include tone, constraints, and examples if needed",
+    ],
+    commonMistakes: [
+      "Asking for copy without describing the real situation",
+      "Using one prompt for every audience and channel",
+      "Treating a first draft like finished work",
+    ],
+    doThisToday: [
+      "Rewrite one vague prompt you already use into a clearer operational prompt",
+      "Save the version that gives the most usable output",
+      "Document why the better version worked",
+    ],
+  },
+  {
+    lessonSlug: "turning-chaos-into-checklists",
+    whyItMatters:
+      "Real estate work often starts as messy notes, texts, or verbal updates. The ability to turn that mess into a checklist is what makes AI genuinely operational.",
+    fieldScenario:
+      "An investor leaves a property walkthrough with scattered rehab notes. Instead of manually sorting everything later, they use AI to break the notes into trades, priorities, and follow-up questions.",
+    workflowBlueprint: [
+      "Drop in the raw notes without over-cleaning them first",
+      "Ask AI to categorize the work into logical buckets",
+      "Have it sequence the work and flag missing information",
+      "Turn the result into a repeatable SOP or checklist",
+    ],
+    commonMistakes: [
+      "Trying to perfect the notes before using AI",
+      "Skipping the step where missing information is surfaced",
+      "Failing to convert the output into a reusable structure",
+    ],
+    doThisToday: [
+      "Take one recent brain dump and turn it into a checklist",
+      "Label which tasks belong to you versus a vendor or teammate",
+      "Reuse the same structure on the next messy task",
+    ],
+  },
+  {
+    lessonSlug: "licensing-study-coach",
+    whyItMatters:
+      "Beginners often need the same concept explained several different ways before it clicks. AI becomes useful when it acts like a study coach instead of a trivia machine.",
+    fieldScenario:
+      "A learner keeps missing questions about agency relationships. They use AI to explain the concept in plain English, build flashcards, and generate practice questions around the exact weak spot.",
+    workflowBlueprint: [
+      "Name the concept that feels unclear",
+      "Describe what you currently think it means",
+      "Ask for a plain-English explanation and one realistic example",
+      "Generate flashcards and practice questions from the response",
+    ],
+    commonMistakes: [
+      "Using AI to skim instead of to reinforce weak spots",
+      "Studying broad topics when the real issue is one concept",
+      "Not saving the best study prompt for future chapters",
+    ],
+    doThisToday: [
+      "Pick one licensing topic you are shaky on",
+      "Use the study coach prompt to clarify it",
+      "Create a mini review loop from the output",
+    ],
+  },
+  {
+    lessonSlug: "practice-question-remix",
+    whyItMatters:
+      "One missed question is not just a wrong answer. It is a chance to locate a pattern of confusion and practice the concept from multiple angles.",
+    fieldScenario:
+      "A student misses one fair housing question. AI remixes the scenario into three more variations so the learner understands the principle, not just the original wording.",
+    workflowBlueprint: [
+      "Paste the missed question and explain why you chose the wrong answer",
+      "Ask AI to isolate the concept being tested",
+      "Generate multiple variations of the question",
+      "Review the explanations until the logic feels predictable",
+    ],
+    commonMistakes: [
+      "Memorizing answer keys instead of concepts",
+      "Moving on too fast after a wrong answer",
+      "Not asking AI to explain why the distractors are wrong",
+    ],
+    doThisToday: [
+      "Take your most recent missed question",
+      "Create three new variations of it with AI",
+      "Write one sentence about what the question is really testing",
+    ],
+  },
+  {
+    lessonSlug: "lead-triage-system",
+    whyItMatters:
+      "Not every lead deserves the same speed, tone, or follow-up sequence. A triage system helps teams stop treating all inquiries as equal.",
+    fieldScenario:
+      "An agent gets leads from Zillow, open houses, referrals, and sign calls. AI helps sort them by urgency, motivation, and next best action before anyone starts sending messages.",
+    workflowBlueprint: [
+      "Define the source and current context of the lead",
+      "Ask AI to rank urgency and likely motivation",
+      "Assign a response path and next action",
+      "Document what should be logged in the CRM",
+    ],
+    commonMistakes: [
+      "Treating every lead like the same script applies",
+      "Skipping the step where urgency gets classified",
+      "Leaving next actions vague after the first contact",
+    ],
+    doThisToday: [
+      "Pick one active lead pipeline",
+      "Create a simple high-medium-low triage structure",
+      "Use it to process your next five leads consistently",
+    ],
+  },
+  {
+    lessonSlug: "follow-up-that-doesnt-sound-robotic",
+    whyItMatters:
+      "Poor AI follow-up sounds like bad copywriting, not good relationship-building. The goal is to preserve warmth and intent while saving time.",
+    fieldScenario:
+      "A wholesaler wants a seller follow-up that feels human, low-pressure, and grounded in the lead's timing. AI helps create several message variations without losing tone.",
+    workflowBlueprint: [
+      "Capture the lead source, situation, and desired tone",
+      "Generate several channel-specific versions",
+      "Edit the strongest version to match your voice",
+      "Save the prompt structure for future follow-up",
+    ],
+    commonMistakes: [
+      "Sending AI output without editing for tone",
+      "Making follow-up sound pushy when the situation is early",
+      "Ignoring the difference between text, email, and voicemail voice",
+    ],
+    doThisToday: [
+      "Rewrite one robotic follow-up you have used before",
+      "Create one softer version and one more direct version",
+      "Save both as reusable templates",
+    ],
+  },
+  {
+    lessonSlug: "listing-content-engine",
+    whyItMatters:
+      "Listing copy often becomes repetitive because the source notes are weak or the workflow is inconsistent. AI helps when the inputs are strong and the output channels are defined.",
+    fieldScenario:
+      "An agent has listing facts, feature notes, and neighborhood context. AI helps turn that into MLS remarks, an email teaser, and a social caption in one pass.",
+    workflowBlueprint: [
+      "Gather the best factual notes and buyer-facing highlights",
+      "Define the likely buyer profile",
+      "Ask AI for channel-specific copy outputs",
+      "Edit for accuracy, compliance, and local voice",
+    ],
+    commonMistakes: [
+      "Starting with generic adjectives instead of property specifics",
+      "Using the same copy across every channel",
+      "Skipping an accuracy review after generation",
+    ],
+    doThisToday: [
+      "Take one current or old listing",
+      "Produce three channel outputs from one structured prompt",
+      "Note which source details made the copy stronger",
+    ],
+  },
+  {
+    lessonSlug: "weekly-content-factory",
+    whyItMatters:
+      "Marketing gets easier when content comes from a repeatable engine instead of last-minute inspiration. AI is most helpful when it is fed a structure.",
+    fieldScenario:
+      "A solo agent wants one weekly session that creates educational posts, neighborhood content, and light lead nurture messaging without staring at a blank screen.",
+    workflowBlueprint: [
+      "Choose recurring content themes for the week",
+      "Batch short source notes for each theme",
+      "Generate platform-specific variations from the same core idea",
+      "Store the winners in a reuse library",
+    ],
+    commonMistakes: [
+      "Trying to generate content without defining themes",
+      "Publishing copy that sounds detached from the local market",
+      "Not tracking which angles actually resonate",
+    ],
+    doThisToday: [
+      "Pick three weekly content themes",
+      "Draft one batch prompt that supports all three",
+      "Save the format as a recurring content ritual",
+    ],
+  },
+  {
+    lessonSlug: "tenant-message-matrix",
+    whyItMatters:
+      "Tenant communication improves when common situations already have a clear starting point. A matrix reduces stress and inconsistency across recurring scenarios.",
+    fieldScenario:
+      "A landlord juggles maintenance reminders, move-in communication, and late follow-up. Instead of rewriting everything from scratch, they keep message templates with room for context.",
+    workflowBlueprint: [
+      "List the recurring tenant communication scenarios",
+      "Create a text, email, and internal note version for each",
+      "Define the tone boundaries for each message type",
+      "Save the templates where they can be reused quickly",
+    ],
+    commonMistakes: [
+      "Using the same tone for every tenant situation",
+      "Sending unclear instructions during time-sensitive issues",
+      "Failing to document what was communicated",
+    ],
+    doThisToday: [
+      "Build templates for three recurring tenant situations",
+      "Create one matching internal note format",
+      "Test whether the language feels clear and calm",
+    ],
+  },
+  {
+    lessonSlug: "screening-and-response-workflow",
+    whyItMatters:
+      "A screening workflow helps landlords stay organized, consistent, and efficient before showings or application reviews begin.",
+    fieldScenario:
+      "A property operator receives multiple inquiries and needs a repeatable way to respond, collect basic information, and identify who is ready for the next step.",
+    workflowBlueprint: [
+      "Define the key information you need before moving forward",
+      "Build a first-response template that gathers it",
+      "Create a note structure for inquiry status and follow-up",
+      "Keep the process consistent across prospects",
+    ],
+    commonMistakes: [
+      "Responding ad hoc instead of using a structure",
+      "Requesting too much information too early",
+      "Forgetting to log inquiry status after the reply",
+    ],
+    doThisToday: [
+      "Map the first three steps of your screening flow",
+      "Write one standard first-response prompt",
+      "Create a notes format you can reuse for every inquiry",
+    ],
+  },
+  {
+    lessonSlug: "rehab-scope-generator",
+    whyItMatters:
+      "Rehab projects go sideways when notes stay vague. Turning rough walkthrough observations into a scope creates clearer communication and better sequencing.",
+    fieldScenario:
+      "After walking a property, an investor has fragmented notes about flooring, plumbing, paint, and safety repairs. AI helps turn that list into a structured scope of work.",
+    workflowBlueprint: [
+      "Gather raw walkthrough notes in one place",
+      "Ask AI to group them by trade or work category",
+      "Sequence the work and highlight dependencies",
+      "Generate a contractor question list and owner summary",
+    ],
+    commonMistakes: [
+      "Lumping cosmetic and safety issues together",
+      "Not clarifying sequencing before requesting bids",
+      "Forgetting to surface unknowns and site questions",
+    ],
+    doThisToday: [
+      "Use one recent rehab note dump as a test case",
+      "Turn it into categories and priority order",
+      "Save the prompt so the next walkthrough is faster",
+    ],
+  },
+  {
+    lessonSlug: "vendor-update-briefs",
+    whyItMatters:
+      "Vendor and owner updates usually get messy because the information is scattered across texts, calls, and photos. A briefing format restores clarity.",
+    fieldScenario:
+      "A landlord has updates from a contractor, a photo thread, and a tenant complaint. AI helps condense those details into one clear status brief with blockers and next steps.",
+    workflowBlueprint: [
+      "Collect updates from the day or week into one source note",
+      "Ask AI to summarize progress, blockers, and pending decisions",
+      "Create one version for vendors and one for owners if needed",
+      "Store the structure for repeating updates",
+    ],
+    commonMistakes: [
+      "Sharing too much raw detail with no prioritization",
+      "Failing to highlight blockers clearly",
+      "Leaving the reader unsure what action is needed",
+    ],
+    doThisToday: [
+      "Pull together one recent set of vendor updates",
+      "Turn it into a short structured brief",
+      "Reuse that format for your next project update",
+    ],
+  },
+];
+
 export const quizzes: Quiz[] = [
   {
     id: "quiz-ai-foundations",
@@ -606,6 +886,187 @@ export const dashboardHighlights = [
   },
 ];
 
+export const landingPersonas = [
+  {
+    title: "New agent who wants structure",
+    description:
+      "Use AI to study faster, explain concepts in plain English, and build repeatable routines before the business gets chaotic.",
+  },
+  {
+    title: "Working agent who needs systems",
+    description:
+      "Turn lead follow-up, listing copy, and CRM cleanup into workflows you can actually repeat every week.",
+  },
+  {
+    title: "Landlord or investor running operations",
+    description:
+      "Organize tenant messages, rehab notes, vendor updates, and deal thinking without buying five more tools first.",
+  },
+];
+
+export const landingWorkflowExamples = [
+  {
+    title: "Licensing Study Engine",
+    description:
+      "Take a chapter, generate plain-English explanations, remix missed questions, and build a daily review loop.",
+  },
+  {
+    title: "Lead Follow-Up Factory",
+    description:
+      "Sort incoming leads by urgency, create human-sounding follow-ups, and convert the process into a team SOP.",
+  },
+  {
+    title: "Listing Content System",
+    description:
+      "Turn facts, features, and neighborhood notes into MLS remarks, email teasers, and social captions.",
+  },
+  {
+    title: "Tenant Communication Board",
+    description:
+      "Build message templates for maintenance, reminders, move-in logistics, and written notes for your own records.",
+  },
+  {
+    title: "Rehab Scope Organizer",
+    description:
+      "Convert messy walkthrough notes into trade categories, sequencing, vendor questions, and owner updates.",
+  },
+  {
+    title: "Deal Analysis Assistant",
+    description:
+      "Pressure-test a potential acquisition with better questions, clearer assumptions, and a conservative decision frame.",
+  },
+];
+
+export const landingCurriculumPillars = [
+  {
+    title: "Learn the concept",
+    description:
+      "Every lesson starts with the reasoning behind the workflow so the user understands what good output looks like.",
+  },
+  {
+    title: "Use a real prompt",
+    description:
+      "Prompt templates are tied to actual real estate tasks, not generic AI demos disconnected from the business.",
+  },
+  {
+    title: "Save the good ones",
+    description:
+      "Users keep the prompts they want to reuse, which gradually turns learning into a working library.",
+  },
+  {
+    title: "Turn it into a system",
+    description:
+      "The end goal is not one clever output. The end goal is a repeatable process someone can use again tomorrow.",
+  },
+];
+
+export const landingTestimonials = [
+  {
+    quote:
+      "This feels less like a course and more like finally having a structure for all the things I keep meaning to systemize.",
+    author: "Sample learner profile",
+    role: "Agent building a repeatable lead workflow",
+  },
+  {
+    quote:
+      "I did not need more AI hype. I needed a way to turn messy notes into tenant and rehab systems I could actually use.",
+    author: "Sample learner profile",
+    role: "Landlord and small portfolio operator",
+  },
+  {
+    quote:
+      "The value is that it teaches the thinking and gives you prompts, instead of pretending one magic tool does the whole job.",
+    author: "Sample learner profile",
+    role: "New investor learning deal analysis",
+  },
+];
+
+export const landingFaqs = [
+  {
+    question: "Is this an AI chat product?",
+    answer:
+      "No. The MVP is a guided learning and workflow-building app. It teaches users how to use AI well rather than embedding a full chat product on day one.",
+  },
+  {
+    question: "Is this a traditional real estate course?",
+    answer:
+      "Also no. The point is practical application. Lessons are built around prompts, systems, operating habits, and repeatable workflows.",
+  },
+  {
+    question: "Who is this for first?",
+    answer:
+      "Beginners, agents, wholesalers, landlords, investors, and real estate professionals who want to use AI to think better and operate more consistently.",
+  },
+  {
+    question: "What happens after the local MVP?",
+    answer:
+      "The next phase is swapping local browser state for Supabase auth and database persistence while keeping the same user-facing structure.",
+  },
+];
+
+export const pricingNarrative = {
+  headline: "The local MVP is for validating demand, flow, and positioning before backend complexity.",
+  bullets: [
+    "Use the free local experience to test whether the education and workflow framing feels compelling.",
+    "Move into the guided version once you want real accounts, persistent dashboards, and production submissions.",
+    "Use custom workflow builds when you want a done-with-you operating system instead of only self-serve lessons.",
+  ],
+};
+
+export const pricingComparison = [
+  {
+    feature: "Interactive lesson flow",
+    starter: "Included in local MVP",
+    guided: "Included with saved progress",
+  },
+  {
+    feature: "Prompt library and favorites",
+    starter: "Browser-saved only",
+    guided: "Account-saved and organized",
+  },
+  {
+    feature: "Quiz results",
+    starter: "Saved locally",
+    guided: "Persistent across devices",
+  },
+  {
+    feature: "Final project submissions",
+    starter: "Local testing mode",
+    guided: "Database-backed submissions",
+  },
+  {
+    feature: "Custom workflow requests",
+    starter: "Form structure only",
+    guided: "Production intake and delivery flow",
+  },
+];
+
+export const customBuildProcess = [
+  {
+    title: "Audit the current process",
+    description:
+      "We start by understanding what the operator is doing today, where it breaks down, and which parts repeat often enough to deserve a system.",
+  },
+  {
+    title: "Design the prompt and workflow logic",
+    description:
+      "Next comes the decision framework, prompt structure, templates, and SOP logic that make the workflow actually reusable.",
+  },
+  {
+    title: "Package it for real use",
+    description:
+      "The final deliverable is not just a cool prompt. It is a practical operating asset someone can use inside the business.",
+  },
+];
+
+export const customBuildExamples = [
+  "Lead intake and follow-up workflow pack",
+  "Listing content and nurture sequence system",
+  "Tenant communication and maintenance response templates",
+  "Rehab scope, update, and vendor coordination framework",
+  "Deal analysis and acquisition review checklist flow",
+];
+
 export function getTrackBySlug(trackSlug: string) {
   return tracks.find((track) => track.slug === trackSlug);
 }
@@ -628,6 +1089,10 @@ export function getResourceById(resourceId: string) {
 
 export function getQuizById(quizId: string) {
   return quizzes.find((quiz) => quiz.id === quizId);
+}
+
+export function getLessonDetail(lessonSlug: string) {
+  return lessonDetails.find((detail) => detail.lessonSlug === lessonSlug);
 }
 
 export function getModulesForTrack(trackSlug: string) {
