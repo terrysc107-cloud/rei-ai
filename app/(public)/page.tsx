@@ -6,7 +6,9 @@ import {
   dashboardHighlights,
   landingCurriculumPillars,
   landingFaqs,
+  landingOutcomeStages,
   landingPersonas,
+  landingSurfaceCards,
   landingTestimonials,
   landingWorkflowExamples,
   tracks,
@@ -58,6 +60,36 @@ export default function LandingPage() {
               <p className="mt-3 text-sm leading-6 text-[var(--ink-muted)]">{item.description}</p>
             </div>
           ))}
+        </div>
+      </section>
+
+      <section className="mx-auto w-full max-w-7xl px-6 lg:px-10">
+        <div className="rounded-[38px] border border-[var(--border)] bg-white/80 p-6 shadow-[0_24px_60px_rgba(62,49,38,0.06)] lg:p-10">
+          <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
+            <div className="space-y-4">
+              <Badge>Transformation path</Badge>
+              <h2 className="text-4xl font-semibold tracking-tight text-[var(--ink)]">
+                The product is designed to change how the user thinks and works.
+              </h2>
+              <p className="text-base leading-7 text-[var(--ink-muted)]">
+                This makes the landing page feel less like a generic feature list and more like a clear before-to-after journey.
+              </p>
+            </div>
+            <div className="grid gap-4 md:grid-cols-3">
+              {landingOutcomeStages.map((stage, index) => (
+                <section
+                  key={stage.title}
+                  className="rounded-[28px] border border-[var(--border)] bg-[linear-gradient(180deg,rgba(255,253,250,0.95)_0%,rgba(243,235,225,0.9)_100%)] p-5"
+                >
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[var(--accent)] text-sm font-semibold text-white">
+                    {index + 1}
+                  </div>
+                  <h3 className="mt-5 text-2xl font-semibold text-[var(--ink)]">{stage.title}</h3>
+                  <p className="mt-3 text-sm leading-7 text-[var(--ink-muted)]">{stage.description}</p>
+                </section>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
@@ -122,6 +154,29 @@ export default function LandingPage() {
             <section key={example.title} className="rounded-[28px] border border-[var(--border)] bg-white p-6">
               <h3 className="text-2xl font-semibold text-[var(--ink)]">{example.title}</h3>
               <p className="mt-3 text-base leading-7 text-[var(--ink-muted)]">{example.description}</p>
+            </section>
+          ))}
+        </div>
+      </section>
+
+      <section className="mx-auto w-full max-w-7xl px-6 lg:px-10">
+        <div className="mb-10 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+          <div className="space-y-3">
+            <Badge>Product surfaces</Badge>
+            <h2 className="text-4xl font-semibold tracking-tight text-[var(--ink)]">
+              More than a course, cleaner than an overbuilt tool stack.
+            </h2>
+          </div>
+          <p className="max-w-2xl text-base leading-7 text-[var(--ink-muted)]">
+            The UI should signal that this is a practical system for learning, saving, and implementing workflows, not just consuming lessons.
+          </p>
+        </div>
+
+        <div className="grid gap-6 md:grid-cols-2">
+          {landingSurfaceCards.map((card) => (
+            <section key={card.title} className="rounded-[30px] border border-[var(--border)] bg-white p-6 shadow-[0_20px_48px_rgba(62,49,38,0.06)]">
+              <h3 className="text-2xl font-semibold text-[var(--ink)]">{card.title}</h3>
+              <p className="mt-3 text-base leading-7 text-[var(--ink-muted)]">{card.description}</p>
             </section>
           ))}
         </div>

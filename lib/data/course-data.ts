@@ -1271,6 +1271,47 @@ export const onboardingPaths = [
   },
 ];
 
+export const landingOutcomeStages = [
+  {
+    title: "Before the lab",
+    description:
+      "The user has scattered notes, inconsistent prompts, and no repeatable system for studying, follow-up, or operations.",
+  },
+  {
+    title: "Inside the lab",
+    description:
+      "They move through guided lessons, save prompts worth keeping, and convert good outputs into reusable workflows.",
+  },
+  {
+    title: "After the lab",
+    description:
+      "They leave with clearer operating habits, a growing prompt library, and systems they can reuse across the business.",
+  },
+];
+
+export const landingSurfaceCards = [
+  {
+    title: "Track-first learning",
+    description:
+      "Users start from the business area that matters now instead of digging through a generic AI curriculum.",
+  },
+  {
+    title: "Prompt library that compounds",
+    description:
+      "The app does not just show prompts once. It helps users save, reuse, and organize the ones that actually work.",
+  },
+  {
+    title: "Workflow implementation angle",
+    description:
+      "Lessons push toward SOPs, checklists, and reusable processes rather than one-off output.",
+  },
+  {
+    title: "Service upsell built in",
+    description:
+      "Custom workflow requests give the product a clear bridge from self-serve learning to done-with-you implementation.",
+  },
+];
+
 export const pricingNarrative = {
   headline: "The local MVP is for validating demand, flow, and positioning before backend complexity.",
   bullets: [
