@@ -26,8 +26,8 @@ export default function StartPage() {
     <div className="space-y-10">
       <PageIntro
         eyebrow="Start Here"
-        title="A simple path through the MVP."
-        description="This app is designed to move you from learning to reusable systems without overwhelming you."
+        title="Here is how it works."
+        description="The app moves you from learning to reusable systems in four steps. Each one builds on the last."
       />
 
       <div className="grid gap-4 md:grid-cols-2">
@@ -62,11 +62,8 @@ export default function StartPage() {
         </div>
       </section>
 
-      <div className="flex flex-wrap gap-4">
-        <ButtonLink href="/tracks">Choose a track</ButtonLink>
-        <ButtonLink href="/prompts" variant="secondary">
-          Browse prompts
-        </ButtonLink>
+      <div>
+        <ButtonLink href="/tracks">Choose a track to begin</ButtonLink>
       </div>
     </div>
   );

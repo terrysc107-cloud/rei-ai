@@ -4,7 +4,7 @@ import { useAppState } from "@/components/providers/app-state-provider";
 import { TrackCard } from "@/components/course/track-card";
 import { ButtonLink } from "@/components/ui/button";
 import { PageIntro } from "@/components/ui/page-intro";
-import { tracks } from "@/lib/data/course-data";
+import { getLessonsForTrack, tracks } from "@/lib/data/course-data";
 
 export default function TracksPage() {
   const { selectedTrack, selectTrack } = useAppState();
@@ -18,17 +18,40 @@ export default function TracksPage() {
       />
 
       {selectedTrack ? (
-        <section className="rounded-[28px] border border-[var(--border)] bg-[var(--panel)] p-5">
-          <div className="flex flex-wrap items-center justify-between gap-4">
+        <section className="rounded-[32px] bg-[linear-gradient(160deg,#211611_0%,#7a412f_100%)] p-6 text-white">
+          <div className="flex flex-wrap items-center justify-between gap-6">
             <div className="space-y-2">
-              <p className="text-sm font-medium text-[var(--ink-muted)]">Current saved track</p>
-              <p className="text-xl font-semibold text-[var(--ink)]">
+              <p className="text-sm font-medium text-white/60">Current track</p>
+              <p className="text-2xl font-semibold">
                 {tracks.find((track) => track.slug === selectedTrack)?.title}
               </p>
+              {(() => {
+                const firstLesson = getLessonsForTrack(selectedTrack)[0];
+                return firstLesson ? (
+                  <p className="text-sm text-white/70">First lesson: {firstLesson.title}</p>
+                ) : null;
+              })()}
             </div>
-            <ButtonLink href={`/tracks/${selectedTrack}`} variant="secondary">
-              Continue track
-            </ButtonLink>
+            <div className="flex flex-wrap gap-3">
+              {(() => {
+                const firstLesson = getLessonsForTrack(selectedTrack)[0];
+                return firstLesson ? (
+                  <ButtonLink
+                    href={`/lessons/${firstLesson.slug}`}
+                    className="border-white/20 bg-white text-[var(--ink)] hover:bg-white/90"
+                  >
+                    Start first lesson
+                  </ButtonLink>
+                ) : null;
+              })()}
+              <ButtonLink
+                href={`/tracks/${selectedTrack}`}
+                variant="secondary"
+                className="border-white/20 bg-white/10 text-white hover:bg-white/18"
+              >
+                View track
+              </ButtonLink>
+            </div>
           </div>
         </section>
       ) : null}
