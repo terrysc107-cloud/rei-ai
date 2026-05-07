@@ -42,11 +42,11 @@ export default function LandingPage() {
               <p className="mt-2 text-xl font-semibold text-[var(--ink)]">AI tool overload</p>
             </div>
           </div>
-          <div className="flex flex-wrap gap-4">
-            <ButtonLink href="/signup">Start the local MVP</ButtonLink>
-            <ButtonLink href="/tracks" variant="secondary">
+          <div className="flex flex-wrap items-center gap-5">
+            <ButtonLink href="/signup">Get started free</ButtonLink>
+            <a href="/tracks" className="text-sm font-semibold text-[var(--ink)] underline-offset-4 hover:underline">
               Explore tracks
-            </ButtonLink>
+            </a>
           </div>
         </div>
         <HeroVisual />
@@ -69,10 +69,10 @@ export default function LandingPage() {
             <div className="space-y-4">
               <Badge>Transformation path</Badge>
               <h2 className="text-4xl font-semibold tracking-tight text-[var(--ink)]">
-                The product is designed to change how the user thinks and works.
+                The product is designed to change how you think and work.
               </h2>
               <p className="text-base leading-7 text-[var(--ink-muted)]">
-                This makes the landing page feel less like a generic feature list and more like a clear before-to-after journey.
+                Not just better answers — a different operating pattern that compounds across every deal, tenant, or listing you touch.
               </p>
             </div>
             <div className="grid gap-4 md:grid-cols-3">
@@ -102,7 +102,7 @@ export default function LandingPage() {
             </h2>
           </div>
           <p className="max-w-2xl text-base leading-7 text-[var(--ink-muted)]">
-            The product positioning is intentionally practical. It is not trying to be a chatbot, a CRM, or an abstract training portal.
+            Not a chatbot. Not a CRM. Not another tool to manage. A structured place to learn the concepts and build the habits that make AI useful in real estate work.
           </p>
         </div>
 
@@ -145,7 +145,7 @@ export default function LandingPage() {
             </h2>
           </div>
           <p className="max-w-2xl text-base leading-7 text-[var(--ink-muted)]">
-            This is the section Claude can later trim, sharpen, or reframe, but the hard part is already here: concrete use cases tied to product value.
+            Every workflow you build inside the lab is something you can run again next week. The library compounds the longer you use it.
           </p>
         </div>
 
@@ -168,7 +168,7 @@ export default function LandingPage() {
             </h2>
           </div>
           <p className="max-w-2xl text-base leading-7 text-[var(--ink-muted)]">
-            The UI should signal that this is a practical system for learning, saving, and implementing workflows, not just consuming lessons.
+            Learn a concept, save the prompt, run the workflow. Each surface is connected so nothing you build gets lost.
           </p>
         </div>
 
@@ -229,10 +229,10 @@ export default function LandingPage() {
           <div className="space-y-4">
             <Badge>FAQ</Badge>
             <h2 className="text-4xl font-semibold tracking-tight text-[var(--ink)]">
-              Positioning questions already answered.
+              Common questions.
             </h2>
             <p className="text-base leading-7 text-[var(--ink-muted)]">
-              This copy gives Claude a strong base for polishing differentiation and objections later.
+              Straight answers on what this is, who it&apos;s for, and how it differs from the tools you already have.
             </p>
           </div>
           <div className="space-y-4">
@@ -250,19 +250,16 @@ export default function LandingPage() {
         <div className="rounded-[36px] border border-[var(--border)] bg-[linear-gradient(135deg,#fff6ea_0%,#f2e7d7_100%)] px-6 py-10 lg:px-10">
           <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
             <div className="space-y-4">
-              <Badge>Call to action</Badge>
+              <Badge>Ready to start</Badge>
               <h2 className="max-w-3xl text-4xl font-semibold tracking-tight text-[var(--ink)]">
-                Start with the local MVP now, then refine the positioning and production stack in the next phase.
+                Pick a track and start your first lesson today.
               </h2>
               <p className="max-w-2xl text-base leading-7 text-[var(--ink-muted)]">
-                The structure is here. The messaging base is here. The next iteration can focus on refinement instead of starting from zero.
+                No tool setup. No subscription required to explore. Choose the part of your business where AI can help first and go from there.
               </p>
             </div>
-            <div className="flex flex-wrap gap-4">
-              <ButtonLink href="/signup">Create local account</ButtonLink>
-              <ButtonLink href="/custom-builds" variant="secondary">
-                Review workflow offer
-              </ButtonLink>
+            <div>
+              <ButtonLink href="/signup">Get started free</ButtonLink>
             </div>
           </div>
         </div>
